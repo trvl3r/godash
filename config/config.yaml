@@ -1,0 +1,27 @@
+default: &default
+  name: Yet another provisioning tool using Golang, Terraform, Kafka, and CockroachDB..
+  http:
+    host: http://localhost
+    port: 4000
+  database:
+    user: tfstream
+    password: ""
+    host: localhost
+    port: 5432
+  github:
+    client_id: b9b78f
+    client_secret: d4e571ce
+  system:
+    attachments:
+      storage: "local"
+      path: app/public/"
+
+development:
+  <<: *default
+  database:
+    name: tfstream_dev
+
+test:
+  <<: *default
+  database:
+    name: tfstream_test
